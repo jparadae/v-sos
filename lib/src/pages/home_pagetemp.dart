@@ -4,21 +4,31 @@ import 'package:flutter/material.dart';
 class HomePageTemp extends StatelessWidget {
   // This widget is the root of your application.
   final estiloText = new TextStyle(fontSize: 20);
+  final opciones = ['title1', 'title2'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Home Temp'),
-        centerTitle: false,
+        title: Text('Componentes'),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text('PageTemp', style: estiloText),
-          ],
-        ),
-      ),
+      body: ListView(children: _crearOpciones()),
     );
+  }
+
+  List<Widget> _crearOpciones() {
+    var widgets = opciones.map((item) {
+      return Column(
+        children: <Widget>[
+          ListTile(
+              title: Text(item + '!'),
+              subtitle: Text('Subtitulo'),
+              trailing: Icon(Icons.keyboard_arrow_right),
+              onTap: () {}),
+          Divider()
+        ],
+      );
+    }).toList();
+    return widgets;
   }
 }
