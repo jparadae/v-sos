@@ -8,7 +8,7 @@ class _MenuProvider {
   }
 
   leerJson() {
-    rootBundle.loadString('data/data.json').then((data) {
+    rootBundle.loadString('data/menu_provider.json').then((data) {
       print(data);
     });
   }
