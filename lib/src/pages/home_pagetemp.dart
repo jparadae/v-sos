@@ -11,6 +11,7 @@ class HomePageTemp extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Componentes'),
+        backgroundColor: Colors.orangeAccent,
       ),
       body: ListView(children: _crearOpciones()),
     );

@@ -72,9 +72,9 @@ class _CountAlarmPageState extends State<CountAlarmPage> {
     });
   }
 
-  void _reset() {
+  /* void _reset() {
     setState(() {
       _sumalarma = 0;
     });
-  }
+  }*/
 }

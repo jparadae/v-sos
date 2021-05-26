@@ -1,0 +1,15 @@
+{
+    "name":"Componentes",
+    "rutas":[
+    {
+        "ruta": "alert",
+        "icon": "add_alert",
+        "text": "Alarmas"
+    },
+    {
+        "ruta": "avatar",
+        "icon": "accesibility",
+        "text": "Avatars"
+    }
+]
+}
