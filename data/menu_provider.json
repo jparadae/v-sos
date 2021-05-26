@@ -10,6 +10,12 @@
         "ruta": "avatar",
         "icon": "accesibility",
         "text": "Avatars"
+    },
+    
+    {
+        "ruta": "folder",
+        "icon": "folder_open",
+        "text": "Folder"
     }
 ]
 }

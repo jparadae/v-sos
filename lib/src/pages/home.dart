@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:v_sos/src/pages/contactos.dart';
 import 'package:v_sos/src/providers/menu.dart';
+import 'package:v_sos/src/routes/routes.dart';
+//utils
+import 'package:v_sos/src/utils/icono_string.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -21,21 +25,25 @@ class HomePage extends StatelessWidget {
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         print(snapshot.data);
         return ListView(
-          children: _listaItems(snapshot.data),
+          children: _listaItems(snapshot.data, context),
         );
       },
     );
   }
 
-  List<Widget> _listaItems(List<dynamic> data) {
+  List<Widget> _listaItems(List<dynamic> data, BuildContext context) {
     final List<Widget> opciones = [];
 
     data.forEach((opt) {
       final widgetTemp = ListTile(
         title: Text(opt['text']),
-        leading: Icon(Icons.account_box, color: Colors.blue),
+        leading: getIcon(opt['icon']),
         trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blueAccent),
         onTap: () {
+          // Navigator.pushNamed(context, opt['ruta']);
+          //final route = getApplicationRoutes();
+
+          Navigator.pushNamed(context, opt['ruta']);
           print('accediste al menu bb');
         },
       );
