@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:v_sos/src/pages/alarmsum_page.dart';
+import 'package:v_sos/src/pages/cards.dart';
 import 'package:v_sos/src/pages/contactos.dart';
 import 'package:v_sos/src/pages/home.dart';
 import 'package:v_sos/src/pages/home_pagetemp.dart';
@@ -18,8 +20,7 @@ class MyApp extends StatelessWidget {
       routes: getApplicationRoutes(),
       onGenerateRoute: (RouteSettings settings) {
         print('nombre ruta: ${settings.name}');
-        return MaterialPageRoute(
-            builder: (BuildContext context) => Contactos());
+        //return MaterialPageRoute(builder: (BuildContext context) => CardPage());
       },
     );
   }

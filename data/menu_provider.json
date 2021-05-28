@@ -7,13 +7,13 @@
         "text": "Alarmas"
     },
     {
-        "ruta": "avatar",
+        "ruta": "contactos",
         "icon": "accesibility",
         "text": "Avatars"
     },
     
     {
-        "ruta": "folder",
+        "ruta": "cards",
         "icon": "folder_open",
         "text": "Folder"
     }
