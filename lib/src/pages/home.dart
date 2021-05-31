@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
           // Navigator.pushNamed(context, opt['ruta']);
           //final route = getApplicationRoutes();
 
-          Navigator.pushNamed(context, opt['ruta']);
+          Navigator.pushNamed(context, '/${opt['ruta']}');
           print('accediste al menu bb');
         },
       );
