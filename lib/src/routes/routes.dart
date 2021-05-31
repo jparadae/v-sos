@@ -7,7 +7,7 @@ import 'package:v_sos/src/pages/home.dart';
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{
     '/': (BuildContext context) => HomePage(),
-    '/alert': (BuildContext context) => CountAlarmPage(),
+    '/alert': (BuildContext context) => AlertPage(),
     '/contactos': (BuildContext context) => Contactos(),
     '/cards': (BuildContext context) => CardPage(),
   };

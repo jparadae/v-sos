@@ -78,3 +78,62 @@ class _CountAlarmPageState extends State<CountAlarmPage> {
     });
   }*/
 }
+
+//Class AlertPage
+
+class AlertPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Botonera Principal'),
+      ),
+      body: Center(
+        child: ElevatedButton(
+            child: Text('Mostrar Ale'),
+            //onPressed: () {},
+            onPressed: () => __mostrarAlert(context),
+            style: ElevatedButton.styleFrom(
+                primary: Colors.red, shape: StadiumBorder())),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add_location),
+        onPressed: () {
+          Navigator.pop(context);
+        },
+      ),
+    );
+  }
+
+  void __mostrarAlert(BuildContext context) {
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            title: Text('titulo'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text('Contenido card'),
+                FlutterLogo(size: 0.0)
+              ],
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Cancelar'),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              TextButton(
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
+}
