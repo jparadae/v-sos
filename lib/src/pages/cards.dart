@@ -17,6 +17,8 @@ class CardPage extends StatelessWidget {
         padding: EdgeInsets.all(20),
         children: <Widget>[
           _cardTipo1(),
+          SizedBox(height: 30.0),
+          _cardTipo2(),
         ],
       ),
     );
@@ -32,9 +34,40 @@ class CardPage extends StatelessWidget {
               Icons.photo_album,
               color: Colors.orangeAccent,
             ),
+            title: Text('Titulo Tarjeta'),
+            subtitle: Text('Descripiones'),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: <Widget>[
+              TextButton(onPressed: () {}, child: Text('Cancelar')),
+              TextButton(onPressed: () {}, child: Text('Ok')),
+            ],
           )
         ],
       ),
     );
   }
+}
+
+//Card2
+
+Widget _cardTipo2() {
+  return Card(
+      child: Column(
+    children: <Widget>[
+      FadeInImage(
+          placeholder: AssetImage('assets/jar-loading.gif'),
+          fadeInDuration: Duration(milliseconds: 200),
+          height: 300.0,
+          fit: BoxFit.cover,
+          image: NetworkImage(
+              'https://www.creattiva.cl/blog-hosting/wp-content/uploads/2020/07/beneficios-landing-page-1024x675.jpg')),
+      // Image(
+      //   image: NetworkImage(
+      //       'https://www.creattiva.cl/blog-hosting/wp-content/uploads/2020/07/beneficios-landing-page-1024x675.jpg'),
+      // ),
+      Container(padding: EdgeInsets.all(10.0), child: Text('Imagen House')),
+    ],
+  ));
 }

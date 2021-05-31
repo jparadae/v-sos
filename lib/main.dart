@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       routes: getApplicationRoutes(),
       onGenerateRoute: (RouteSettings settings) {
         print('nombre ruta: ${settings.name}');
-        //return MaterialPageRoute(builder: (BuildContext context) => CardPage());
+        return MaterialPageRoute(builder: (BuildContext context) => CardPage());
       },
     );
   }
