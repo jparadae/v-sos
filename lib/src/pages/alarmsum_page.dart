@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
+//Package para llamar
 import 'package:url_launcher/url_launcher.dart';
 
 //Botonera inicial
 //Podrias registervcin, regist alarmxhou
+/*
+ Recordatorio:
+-necesitas registrar los numeros en el telefono primero 
+-podria utilizar otra card en contactos*/
+
 class CountAlarmPage extends StatefulWidget {
   @override
   createState() => _CountAlarmPageState();
@@ -92,7 +97,7 @@ class AlertPage extends StatelessWidget {
         backgroundColor: Colors.orangeAccent,
       ),
       body: ListView(padding: EdgeInsets.all(30), children: <Widget>[
-        _cardTipo1(),
+        _indicaciones(),
         Divider(),
         _botonAlertados(context),
         Divider(),
@@ -115,8 +120,8 @@ class AlertPage extends StatelessWidget {
     );
   }
 
-  //Card1
-  Widget _cardTipo1() {
+  //Indicaciones
+  Widget _indicaciones() {
     return Card(
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -134,7 +139,8 @@ class AlertPage extends StatelessWidget {
       ),
     );
   }
-}
+} //Fin indicadiones
+
 //Botonera Alertados
 
 Widget _botonAlertados(BuildContext context) {
@@ -153,7 +159,7 @@ Widget _botonAlertados(BuildContext context) {
           child: Icon(Icons.add_alert)),
       SizedBox(width: 14.0),
       //Bombero
-      Text('Bomeros        '),
+      Text('Bomberos        '),
       ElevatedButton(
           onPressed: () => _launchURL,
           style: ElevatedButton.styleFrom(
@@ -180,12 +186,12 @@ Widget _butonsCommunity(BuildContext context) {
           child: Icon(Icons.sports_kabaddi)),
       SizedBox(width: 10.0),
       //Carabineros
-      Text('Carabineros  '),
+      Text('Carabineros     '),
       ElevatedButton(
           onPressed: () => __call133(context),
           style: ElevatedButton.styleFrom(
               primary: Colors.green, shape: StadiumBorder()),
-          child: Icon(Icons.policy)),
+          child: Icon(Icons.local_taxi)),
       //Violencia Mujer
     ],
   );

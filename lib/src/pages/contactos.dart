@@ -10,6 +10,7 @@ class Contactos extends StatefulWidget {
 class _ContactoState extends State<Contactos> {
   String _nombre = '';
   String _direccion = '';
+  String _telefono = '';
   String _seleccionSexo = 'Femenino';
   List<String> _sexoList = ['Femenino', 'Masculino'];
   String _selectComuna = 'Santiago';
@@ -58,34 +59,36 @@ class _ContactoState extends State<Contactos> {
         title: Text('Registro de comunidad'),
         backgroundColor: Colors.orangeAccent,
         actions: <Widget>[
-          Container(
-            padding: EdgeInsets.all(2.0),
-            child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://scontent-scl2-1.xx.fbcdn.net/v/t31.18172-8/17192646_10212081323814309_3581805654920506777_o.jpg?_nc_cat=103&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=yvfVaC1BEBQAX9WiXLO&_nc_ht=scontent-scl2-1.xx&oh=14db7d27110cf2333d1e46c95f0a9694&oe=60DC08B7'),
-              radius: 25.0,
-            ),
-          ),
-          Container(
-            child: CircleAvatar(
-              child: Text('SL'),
-              backgroundColor: Colors.yellowAccent,
-            ),
-          ),
+          // Container(
+          //   padding: EdgeInsets.all(2.0),
+          //   child: CircleAvatar(
+          //     backgroundImage: NetworkImage(
+          //         'https://scontent-scl2-1.xx.fbcdn.net/v/t31.18172-8/17192646_10212081323814309_3581805654920506777_o.jpg?_nc_cat=103&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=yvfVaC1BEBQAX9WiXLO&_nc_ht=scontent-scl2-1.xx&oh=14db7d27110cf2333d1e46c95f0a9694&oe=60DC08B7'),
+          //     radius: 25.0,
+          //   ),
+          // ),
+          // Container(
+          //   child: CircleAvatar(
+          //     child: Text('SL'),
+          //     backgroundColor: Colors.yellowAccent,
+          //   ),
+          // ),
         ],
       ),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
+          // _indicaciones(),
           _nombreVecino(),
-          SizedBox(height: 30.0),
-          // Divider(),
+          Divider(),
+          _celVecino(),
+          Divider(),
           _sexo(),
           Divider(),
           _direccionVecino(),
           Divider(),
           _comuna(),
-          Divider(),
+          SizedBox(height: 40.0),
           _saveVecino(context),
 
           //_createVecino(), Solo para ver que estoy recibiendo el param
@@ -118,8 +121,8 @@ class _ContactoState extends State<Contactos> {
       decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_nombre.length}'),
-          hintText: 'Nombre vecin@',
-          labelText: 'Nombre Vecin@',
+          //hintText: 'Nombre vecin@',
+          labelText: 'Nombre vecin@',
           helperText: 'Ingresar nombre completo',
           suffixIcon: Icon(Icons.accessibility),
           icon: Icon(Icons.account_circle)),
@@ -139,7 +142,7 @@ class _ContactoState extends State<Contactos> {
       decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_direccion.length}'),
-          hintText: 'Direccion vecin@',
+          //hintText: 'Direccion vecin@',
           labelText: 'Direccion vecin@',
           helperText: 'Ingresar Direccion completa',
           suffixIcon: Icon(Icons.home),
@@ -148,6 +151,27 @@ class _ContactoState extends State<Contactos> {
         setState(() {
           _direccion = valor;
           print(_direccion);
+        });
+      },
+    );
+  }
+
+//Celular
+  Widget _celVecino() {
+    return TextField(
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+          counter: Text('Letras ${_telefono.length}'),
+          //hintText: 'Direccion vecin@',
+          labelText: 'Teléfono vecin@',
+          helperText: 'Ingresar télefono',
+          suffixIcon: Icon(Icons.phone),
+          icon: Icon(Icons.phone_android)),
+      onChanged: (valor) {
+        setState(() {
+          _telefono = valor;
+          print(_telefono);
         });
       },
     );

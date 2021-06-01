@@ -16,7 +16,7 @@ class CardPage extends StatelessWidget {
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
-          _cardTipo1(),
+          _indicaciones(),
           SizedBox(height: 30.0),
           _cardTipo2(),
         ],
@@ -24,8 +24,8 @@ class CardPage extends StatelessWidget {
     );
   }
 
-  //Card1
-  Widget _cardTipo1() {
+  //Indicaciones
+  Widget _indicaciones() {
     return Card(
       elevation: 10.0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
@@ -33,24 +33,17 @@ class CardPage extends StatelessWidget {
         children: <Widget>[
           ListTile(
             leading: Icon(
-              Icons.photo_album,
+              Icons.error_outline,
               color: Colors.orangeAccent,
             ),
-            title: Text('Titulo Tarjeta'),
-            subtitle: Text('Descripiones'),
+            title: Text('Indicaciones'),
+            subtitle: Text('Galeria'),
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: <Widget>[
-              TextButton(onPressed: () {}, child: Text('Cancelar')),
-              TextButton(onPressed: () {}, child: Text('Ok')),
-            ],
-          )
         ],
       ),
     );
   }
-}
+} //Fin indicadiones
 
 //Card2
 
