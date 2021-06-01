@@ -12,6 +12,41 @@ class _ContactoState extends State<Contactos> {
   String _direccion = '';
   String _seleccionSexo = 'Femenino';
   List<String> _sexoList = ['Femenino', 'Masculino'];
+  String _selectComuna = 'Santiago';
+  List<String> _comunaList = [
+    'Cerrillos',
+    'Cerro Navia',
+    'Conchalí',
+    'El Bosque',
+    ' Estación Central',
+    'Huechuraba',
+    'Independencia',
+    'La Cisterna',
+    ' La Florida',
+    ' La Granja',
+    'La Pintana',
+    'La Reina',
+    'Las Condes',
+    'Lo Barnechea',
+    ' Lo Espejo',
+    ' Lo Prado',
+    'Macul',
+    'Maipú',
+    'Ñuñoa',
+    'Pedro Aguirre Cerda',
+    'Peñalolén',
+    'Providencia',
+    'Pudahuel',
+    'Quilicura',
+    'Quinta Normal',
+    'Recoleta',
+    'Renca',
+    'San Joaquín',
+    'San Miguel',
+    'San Ramón',
+    'Santiago',
+    'Vitacura'
+  ];
 
   @override
   final estiloText = new TextStyle(fontSize: 20);
@@ -44,10 +79,12 @@ class _ContactoState extends State<Contactos> {
         children: <Widget>[
           _nombreVecino(),
           SizedBox(height: 30.0),
+          // Divider(),
+          _sexo(),
           Divider(),
           _direccionVecino(),
           Divider(),
-          _sexo(),
+          _comuna(),
           Divider(),
           _saveVecino(context),
 
@@ -132,7 +169,7 @@ class _ContactoState extends State<Contactos> {
   Widget _sexo() {
     return Row(
       children: <Widget>[
-        Icon(Icons.expand_more_outlined),
+        Icon(Icons.wc),
         SizedBox(width: 30.0),
         Text('Sexo: '),
         DropdownButton(
@@ -149,12 +186,54 @@ class _ContactoState extends State<Contactos> {
               print(opt);
             });
           },
-        )
+        ),
+        Icon(Icons.expand_more_outlined),
       ],
     );
   }
 
   //Fin Sexo
+
+  //Comunas con Lista Dynamica
+  List<DropdownMenuItem<String>> getComuna() {
+    List<DropdownMenuItem<String>> lista = [];
+
+    _comunaList.forEach((comuna) {
+      lista.add(DropdownMenuItem(
+        child: Text(comuna),
+        value: comuna,
+      ));
+    });
+    return lista;
+  }
+
+  Widget _comuna() {
+    return Row(
+      children: <Widget>[
+        Icon(Icons.add_location),
+        SizedBox(width: 30.0),
+        Text('Comuna: '),
+        DropdownButton(
+          value: _selectComuna,
+          items: getComuna(),
+          style: const TextStyle(color: Colors.blue),
+          underline: Container(
+            height: 2,
+            color: Colors.blue,
+          ),
+          onChanged: (String? opt) {
+            setState(() {
+              _selectComuna = opt!;
+              print(opt);
+            });
+          },
+        ),
+        Icon(Icons.expand_more_outlined),
+      ],
+    );
+  }
+
+  //Fin Comunas
 
   //Metodo mensaje has guardado bn
   void __mostrarAlert(BuildContext context) {

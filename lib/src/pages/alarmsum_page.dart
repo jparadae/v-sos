@@ -89,8 +89,12 @@ class AlertPage extends StatelessWidget {
         title: Text('Activar Alertados'),
         backgroundColor: Colors.orangeAccent,
       ),
-      body: ListView(padding: EdgeInsets.all(20), children: <Widget>[
+      body: ListView(padding: EdgeInsets.all(30), children: <Widget>[
+        _cardTipo1(),
+        Divider(),
         _botonAlertados(context),
+        Divider(),
+        _butonsCommunity(context),
 
         // child: ElevatedButton(
         //     child: Text('Alertados'),
@@ -109,73 +113,184 @@ class AlertPage extends StatelessWidget {
     );
   }
 
-  //Botonera Alertados
-
-  Widget _botonAlertados(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        //Alarma Principal Comunidad
-        ElevatedButton(
-            onPressed: () => __mostrarAlert(context),
-            style: ElevatedButton.styleFrom(
-                primary: Colors.orange, shape: StadiumBorder()),
-            child: Text('Robo')),
-        SizedBox(width: 4.0),
-        //Bombero
-        ElevatedButton(
-            onPressed: () => __mostrarAlert(context),
-            style: ElevatedButton.styleFrom(
-                primary: Colors.red, shape: StadiumBorder()),
-            child: Text('Fuego')),
-
-        //Carabineros
-        ElevatedButton(
-            onPressed: () => __mostrarAlert(context),
-            style: ElevatedButton.styleFrom(
-                primary: Colors.green, shape: StadiumBorder()),
-            child: Text('Carabinero')),
-        //Violencia Mujer
-
-        ElevatedButton(
-            onPressed: () => __mostrarAlert(context),
-            style: ElevatedButton.styleFrom(
-                primary: Colors.pink, shape: StadiumBorder()),
-            child: Text('Violencia')),
-      ],
+  //Card1
+  Widget _cardTipo1() {
+    return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            leading: Icon(
+              Icons.error_outline,
+              color: Colors.orangeAccent,
+            ),
+            title: Text('Indicaciones'),
+            subtitle: Text('Presione icono según emergencia'),
+          ),
+        ],
+      ),
     );
   }
-  //Fin
-
-  void __mostrarAlert(BuildContext context) {
-    showDialog(
-        context: context,
-        barrierDismissible: true,
-        builder: (context) {
-          return AlertDialog(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20.0)),
-            title: Text('titulo'),
-            content: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Text('Contenido card'),
-                FlutterLogo(size: 0.0)
-              ],
-            ),
-            actions: <Widget>[
-              TextButton(
-                child: Text('Cancelar'),
-                onPressed: () => Navigator.of(context).pop(),
-              ),
-              TextButton(
-                child: Text('Ok'),
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ],
-          );
-        });
-  }
 }
+//Botonera Alertados
+
+Widget _botonAlertados(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: <Widget>[
+      //Alarma Principal Comunidad
+      Text('Alertados          '),
+      ElevatedButton(
+          onPressed: () => __alertados(context),
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+            shape: StadiumBorder(),
+          ),
+          child: Icon(Icons.add_alert)),
+      SizedBox(width: 14.0),
+      //Bombero
+      Text('Bomeros        '),
+      ElevatedButton(
+          onPressed: () => __call132(context),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.red, shape: StadiumBorder()),
+          child: Icon(Icons.fire_extinguisher)),
+    ],
+  );
+}
+//Fin
+
+Widget _butonsCommunity(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: <Widget>[
+      Text('Violencia Mujer '),
+      ElevatedButton(
+          onPressed: () => __call1455(context),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.pink, shape: StadiumBorder()),
+          child: Icon(Icons.sports_kabaddi)),
+      SizedBox(width: 10.0),
+      //Carabineros
+      Text('Carabineros  '),
+      ElevatedButton(
+          onPressed: () => __call133(context),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.green, shape: StadiumBorder()),
+          child: Icon(Icons.policy)),
+      //Violencia Mujer
+    ],
+  );
+}
+//Fin
+
+void __alertados(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          title: Text('Activando'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text('Vecinos Alertados'),
+              FlutterLogo(size: 0.0)
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      });
+}
+
+//Call 133
+
+void __call133(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          title: Text('Llamando a:'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[Text('Carabineros 133'), FlutterLogo(size: 0.0)],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      });
+} //fin133
+
+//Call 132
+void __call132(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          title: Text('Llamando a:'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[Text('Bomberos 132'), FlutterLogo(size: 0.0)],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      });
+} //fin132
+
+//Call __call1455
+void __call1455(BuildContext context) {
+  showDialog(
+      context: context,
+      barrierDismissible: true,
+      builder: (context) {
+        return AlertDialog(
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          title: Text('Llamando a:'),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              Text('Violencia Mujer 1455'),
+              FlutterLogo(size: 0.0)
+            ],
+          ),
+          actions: <Widget>[
+            TextButton(
+              child: Text('OK'),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      });
+} //fin132

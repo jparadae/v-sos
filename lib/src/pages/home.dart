@@ -22,7 +22,7 @@ class HomePage extends StatelessWidget {
     //read json with FutureBuilder recibe el builder para dibujar en la pantalla
     return FutureBuilder(
       future: menuProvider.leerJson(),
-      //initialData: [],
+      initialData: [],
       builder: (BuildContext context, AsyncSnapshot snapshot) {
         print(snapshot.data);
         return ListView(
