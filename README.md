@@ -1,16 +1,13 @@
 # v_sos
 
-A new Flutter project.
+Proyecto orientado a la comunidad realizado con domotica/IoT, para que funcione con
+el ciclo deberas comprar un arduino y/o utilizar un simil
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Si quieres compilarlo necesitaras instalar flutter en tu ambiente de desarrollo,
+por el momento no tiene integraciones
 
-A few resources to get you started if this is your first Flutter project:
+Dale una estrella al proyecto Alertados!
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Propiedad Intelectual de JParada 
