@@ -43,6 +43,8 @@ class _ContactoState extends State<Contactos> {
           Divider(),
           _direccionVecino(),
           Divider(),
+          _saveVecino(context),
+          Divider(),
           _createVecino(),
         ],
         // ),
@@ -64,22 +66,6 @@ class _ContactoState extends State<Contactos> {
         //   },
       ),
     );
-  }
-
-  List<Widget> _crearOpciones() {
-    var widgets = opciones.map((item) {
-      return Column(
-        children: <Widget>[
-          ListTile(
-              title: Text(item + '!'),
-              subtitle: Text('Subtitulo'),
-              trailing: Icon(Icons.keyboard_arrow_right),
-              onTap: () {}),
-          Divider()
-        ],
-      );
-    }).toList();
-    return widgets;
   }
 
   //Nombre Vecino
@@ -111,7 +97,7 @@ class _ContactoState extends State<Contactos> {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_direccion.length}'),
           hintText: 'Direccion vecino',
-          labelText: 'Direccion Vecino',
+          labelText: 'Direccion vecino',
           helperText: 'Ingresar Direccion completa',
           suffixIcon: Icon(Icons.home),
           icon: Icon(Icons.home_filled)),
@@ -129,4 +115,22 @@ class _ContactoState extends State<Contactos> {
       title: Text('Nombre es: $_nombre'),
     );
   }
+}
+
+Widget _saveVecino(BuildContext context) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: <Widget>[
+      TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Guardar')),
+      TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text('Volver')),
+    ],
+  );
 }

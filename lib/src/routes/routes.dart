@@ -9,6 +9,7 @@ Map<String, WidgetBuilder> getApplicationRoutes() {
     '/': (BuildContext context) => HomePage(),
     '/alert': (BuildContext context) => AlertPage(),
     '/contactos': (BuildContext context) => Contactos(),
+    '/lista_vecinos': (BuildContext context) => Contactos(), //CrearPage
     '/cards': (BuildContext context) => CardPage(),
   };
 }

@@ -1,8 +1,8 @@
+//Flutter package
 import 'package:flutter/material.dart';
-//import 'package:v_sos/src/pages/contactos.dart';
 import 'package:v_sos/src/providers/menu.dart';
-//import 'package:v_sos/src/routes/routes.dart';
-//utils
+
+//utils alertados
 import 'package:v_sos/src/utils/icono_string.dart';
 
 class HomePage extends StatelessWidget {
@@ -10,7 +10,8 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('HomeComponents'),
+        title: Text('Menú Alertados'),
+        backgroundColor: Colors.orangeAccent,
       ),
       body: _lista(),
     );

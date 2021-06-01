@@ -11,11 +11,17 @@
         "icon": "accesibility",
         "text": "Registro Vecino"
     },
+
+    {
+        "ruta": "lista_vecinos",
+        "icon": "list",
+        "text": "Lista de Vecinos"
+    },
     
     {
         "ruta": "cards",
         "icon": "folder_open",
-        "text": "Folder"
+        "text": "Capturas"
     }
 ]
 }
