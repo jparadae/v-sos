@@ -100,8 +100,8 @@ class AlertPage extends StatelessWidget {
         _indicaciones(),
         Divider(),
         _botonAlertados(context),
-        Divider(),
-        _butonsCommunity(context),
+        //  Divider(),
+        // _butonsCommunity(context),
 
         // child: ElevatedButton(
         //     child: Text('Alertados'),
@@ -145,7 +145,7 @@ class AlertPage extends StatelessWidget {
 
 Widget _botonAlertados(BuildContext context) {
   //final mobile_no = 133;
-  return Row(
+  return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
       //Alarma Principal Comunidad
@@ -158,13 +158,31 @@ Widget _botonAlertados(BuildContext context) {
           ),
           child: Icon(Icons.add_alert)),
       SizedBox(width: 14.0),
+      Divider(),
       //Bombero
       Text('Bomberos        '),
       ElevatedButton(
-          onPressed: () => _launchURL,
+          onPressed: () => __call132(context),
           style: ElevatedButton.styleFrom(
               primary: Colors.red, shape: StadiumBorder()),
           child: Icon(Icons.fire_extinguisher)),
+      Divider(),
+      Text('Violencia Mujer '),
+      ElevatedButton(
+          onPressed: () => __call1455(context),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.pink, shape: StadiumBorder()),
+          child: Icon(Icons.sports_kabaddi)),
+      Divider(),
+      //Carabineros
+      Text('Carabineros     '),
+      ElevatedButton(
+          onPressed: () => __call133(context),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.green, shape: StadiumBorder()),
+          child: Icon(Icons.local_taxi)),
+
+      //Violencia Mujer
     ],
   );
 }
@@ -192,6 +210,7 @@ Widget _butonsCommunity(BuildContext context) {
           style: ElevatedButton.styleFrom(
               primary: Colors.green, shape: StadiumBorder()),
           child: Icon(Icons.local_taxi)),
+
       //Violencia Mujer
     ],
   );
@@ -272,11 +291,7 @@ void __call132(BuildContext context) {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+                child: Text('OK'), onPressed: () => launch(('tel://132'))),
           ],
         );
       });
@@ -301,11 +316,7 @@ void __call1455(BuildContext context) {
           ),
           actions: <Widget>[
             TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+                child: Text('OK'), onPressed: () => launch(('tel://1455'))),
           ],
         );
       });
