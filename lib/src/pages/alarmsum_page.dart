@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import 'package:url_launcher/url_launcher.dart';
+
 //Botonera inicial
 //Podrias registervcin, regist alarmxhou
 class CountAlarmPage extends StatefulWidget {
@@ -136,13 +138,14 @@ class AlertPage extends StatelessWidget {
 //Botonera Alertados
 
 Widget _botonAlertados(BuildContext context) {
+  //final mobile_no = 133;
   return Row(
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
       //Alarma Principal Comunidad
       Text('Alertados          '),
       ElevatedButton(
-          onPressed: () => __alertados(context),
+          onPressed: () => launch(('tel://99999xxxxx')),
           style: ElevatedButton.styleFrom(
             primary: Colors.orange,
             shape: StadiumBorder(),
@@ -152,14 +155,18 @@ Widget _botonAlertados(BuildContext context) {
       //Bombero
       Text('Bomeros        '),
       ElevatedButton(
-          onPressed: () => __call132(context),
+          onPressed: () => _launchURL,
           style: ElevatedButton.styleFrom(
               primary: Colors.red, shape: StadiumBorder()),
           child: Icon(Icons.fire_extinguisher)),
     ],
   );
 }
+
 //Fin
+const _url = 'https://flutter.dev';
+void _launchURL() async =>
+    await canLaunch(_url) ? await launch(_url) : throw 'Could not launch $_url';
 
 Widget _butonsCommunity(BuildContext context) {
   return Row(
@@ -185,33 +192,38 @@ Widget _butonsCommunity(BuildContext context) {
 }
 //Fin
 
-void __alertados(BuildContext context) {
-  showDialog(
-      context: context,
-      barrierDismissible: true,
-      builder: (context) {
-        return AlertDialog(
-          shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
-          title: Text('Activando'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Text('Vecinos Alertados'),
-              FlutterLogo(size: 0.0)
-            ],
-          ),
-          actions: <Widget>[
-            TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      });
-}
+// void __alertados(BuildContext context) {
+//   showDialog(
+//       context: context,
+//       barrierDismissible: true,
+//       builder: (context) {
+//         return AlertDialog(
+//           shape:
+//               RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+//           title: Text('Activando'),
+//           content: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: <Widget>[
+//               Text('Vecinos Alertados'),
+//               FlutterLogo(size: 0.0)
+//             ],
+//           ),
+//           actions: <Widget>[
+//             TextButton(
+//               child: Text('OK'),
+//               onPressed: () {
+//                 Navigator.of(context).pop();
+//               },
+//             ),
+//           ],
+//         );
+//       });
+// }
+
+// _callNumber() async {
+//   const number = '08592119XXXX'; //set the number here
+//   bool res = await FlutterPhoneDirectCaller.callNumber(number);
+// }
 
 //Call 133
 
@@ -229,12 +241,10 @@ void __call133(BuildContext context) {
             children: <Widget>[Text('Carabineros 133'), FlutterLogo(size: 0.0)],
           ),
           actions: <Widget>[
-            TextButton(
-              child: Text('OK'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
+            TextButton(child: Text('OK'), onPressed: () => launch(('tel://133'))
+
+                ///},
+                ),
           ],
         );
       });
