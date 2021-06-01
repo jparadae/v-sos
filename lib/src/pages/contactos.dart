@@ -20,7 +20,7 @@ class _ContactoState extends State<Contactos> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Registrar nuevo vecino'),
+        title: Text('Registro de comunidad'),
         backgroundColor: Colors.orangeAccent,
         actions: <Widget>[
           Container(
@@ -81,8 +81,8 @@ class _ContactoState extends State<Contactos> {
       decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_nombre.length}'),
-          hintText: 'Nombre vecino',
-          labelText: 'Nombre Vecino',
+          hintText: 'Nombre vecin@',
+          labelText: 'Nombre Vecin@',
           helperText: 'Ingresar nombre completo',
           suffixIcon: Icon(Icons.accessibility),
           icon: Icon(Icons.account_circle)),
@@ -102,8 +102,8 @@ class _ContactoState extends State<Contactos> {
       decoration: InputDecoration(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_direccion.length}'),
-          hintText: 'Direccion vecino',
-          labelText: 'Direccion vecino',
+          hintText: 'Direccion vecin@',
+          labelText: 'Direccion vecin@',
           helperText: 'Ingresar Direccion completa',
           suffixIcon: Icon(Icons.home),
           icon: Icon(Icons.home_filled)),
@@ -138,10 +138,10 @@ class _ContactoState extends State<Contactos> {
         DropdownButton(
           value: _seleccionSexo,
           items: getOpcionesSexo(),
-          style: const TextStyle(color: Colors.orange),
+          style: const TextStyle(color: Colors.blue),
           underline: Container(
             height: 2,
-            color: Colors.red,
+            color: Colors.blue,
           ),
           onChanged: (String? opt) {
             setState(() {
@@ -156,29 +156,63 @@ class _ContactoState extends State<Contactos> {
 
   //Fin Sexo
 
+  //Metodo mensaje has guardado bn
+  void __mostrarAlert(BuildContext context) {
+    showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (context) {
+          return AlertDialog(
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)),
+            title: Text('Guardando'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Text('Al vecin@ $_nombre '),
+                FlutterLogo(size: 0.0)
+              ],
+            ),
+            actions: <Widget>[
+              TextButton(
+                child: Text('Cancelar'),
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              TextButton(
+                child: Text('Ok'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        });
+  }
+
+  //Debes guardar al veci
+  Widget _saveVecino(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        TextButton(
+            onPressed: () => __mostrarAlert(context),
+            // onPressed: () {
+            //   Navigator.pop(context);
+            // },
+            child: Text('Guardar')),
+        TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('Volver')),
+      ],
+    );
+  }
+
   //Esto solo sirve para ver si recibo algo y si lo guardo en el state
   Widget _createVecino() {
     return ListTile(
       title: Text('Nombre es: $_nombre'),
     );
   }
-}
-
-//Debes guardar al veci
-Widget _saveVecino(BuildContext context) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: <Widget>[
-      TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Guardar')),
-      TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Volver')),
-    ],
-  );
 }

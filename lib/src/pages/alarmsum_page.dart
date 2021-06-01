@@ -86,24 +86,66 @@ class AlertPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Botonera Principal'),
+        title: Text('Activar Alertados'),
+        backgroundColor: Colors.orangeAccent,
       ),
-      body: Center(
-        child: ElevatedButton(
-            child: Text('Mostrar Ale'),
-            //onPressed: () {},
-            onPressed: () => __mostrarAlert(context),
-            style: ElevatedButton.styleFrom(
-                primary: Colors.red, shape: StadiumBorder())),
-      ),
+      body: ListView(padding: EdgeInsets.all(20), children: <Widget>[
+        _botonAlertados(context),
+
+        // child: ElevatedButton(
+        //     child: Text('Alertados'),
+        //     //onPressed: () {},
+        //     onPressed: () => __mostrarAlert(context),
+        //     style: ElevatedButton.styleFrom(
+        //         primary: Colors.red, shape: StadiumBorder())),
+      ]),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add_location),
+        child: Icon(Icons.exit_to_app),
+        backgroundColor: Colors.orange,
         onPressed: () {
           Navigator.pop(context);
         },
       ),
     );
   }
+
+  //Botonera Alertados
+
+  Widget _botonAlertados(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        //Alarma Principal Comunidad
+        ElevatedButton(
+            onPressed: () => __mostrarAlert(context),
+            style: ElevatedButton.styleFrom(
+                primary: Colors.orange, shape: StadiumBorder()),
+            child: Text('Robo')),
+        SizedBox(width: 4.0),
+        //Bombero
+        ElevatedButton(
+            onPressed: () => __mostrarAlert(context),
+            style: ElevatedButton.styleFrom(
+                primary: Colors.red, shape: StadiumBorder()),
+            child: Text('Fuego')),
+
+        //Carabineros
+        ElevatedButton(
+            onPressed: () => __mostrarAlert(context),
+            style: ElevatedButton.styleFrom(
+                primary: Colors.green, shape: StadiumBorder()),
+            child: Text('Carabinero')),
+        //Violencia Mujer
+
+        ElevatedButton(
+            onPressed: () => __mostrarAlert(context),
+            style: ElevatedButton.styleFrom(
+                primary: Colors.pink, shape: StadiumBorder()),
+            child: Text('Violencia')),
+      ],
+    );
+  }
+  //Fin
 
   void __mostrarAlert(BuildContext context) {
     showDialog(

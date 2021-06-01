@@ -10,7 +10,7 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cards'),
+        title: Text('Galería Alertados!'),
         backgroundColor: Colors.orangeAccent,
       ),
       body: ListView(

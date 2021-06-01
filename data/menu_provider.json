@@ -4,24 +4,24 @@
     {
         "ruta": "alert",
         "icon": "add_alert",
-        "text": "Alarmas"
+        "text": "Activar alerta"
     },
     {
         "ruta": "contactos",
         "icon": "accesibility",
-        "text": "Registro Vecino"
+        "text": "Registro comunidad"
     },
 
     {
         "ruta": "lista_vecinos",
         "icon": "list",
-        "text": "Lista de Vecinos"
+        "text": "Lista de vecinos"
     },
     
     {
         "ruta": "cards",
         "icon": "folder_open",
-        "text": "Capturas"
+        "text": "Galeria alertados"
     }
 ]
 }
