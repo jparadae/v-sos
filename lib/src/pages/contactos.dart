@@ -10,9 +10,13 @@ class Contactos extends StatefulWidget {
 class _ContactoState extends State<Contactos> {
   String _nombre = '';
   String _direccion = '';
+  String _seleccionSexo = 'Femenino';
+  List<String> _sexoList = ['Femenino', 'Masculino'];
+
   @override
   final estiloText = new TextStyle(fontSize: 20);
   final opciones = ['Contac1', 'Contact2'];
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -43,9 +47,11 @@ class _ContactoState extends State<Contactos> {
           Divider(),
           _direccionVecino(),
           Divider(),
-          _saveVecino(context),
+          _sexo(),
           Divider(),
-          _createVecino(),
+          _saveVecino(context),
+
+          //_createVecino(), Solo para ver que estoy recibiendo el param
         ],
         // ),
 
@@ -110,6 +116,47 @@ class _ContactoState extends State<Contactos> {
     );
   }
 
+  //Sexo Vecino con Lista Dynamica
+  List<DropdownMenuItem<String>> getOpcionesSexo() {
+    List<DropdownMenuItem<String>> lista = [];
+
+    _sexoList.forEach((sexo) {
+      lista.add(DropdownMenuItem(
+        child: Text(sexo),
+        value: sexo,
+      ));
+    });
+    return lista;
+  }
+
+  Widget _sexo() {
+    return Row(
+      children: <Widget>[
+        Icon(Icons.expand_more_outlined),
+        SizedBox(width: 30.0),
+        Text('Sexo: '),
+        DropdownButton(
+          value: _seleccionSexo,
+          items: getOpcionesSexo(),
+          style: const TextStyle(color: Colors.orange),
+          underline: Container(
+            height: 2,
+            color: Colors.red,
+          ),
+          onChanged: (String? opt) {
+            setState(() {
+              _seleccionSexo = opt!;
+              print(opt);
+            });
+          },
+        )
+      ],
+    );
+  }
+
+  //Fin Sexo
+
+  //Esto solo sirve para ver si recibo algo y si lo guardo en el state
   Widget _createVecino() {
     return ListTile(
       title: Text('Nombre es: $_nombre'),
@@ -117,6 +164,7 @@ class _ContactoState extends State<Contactos> {
   }
 }
 
+//Debes guardar al veci
 Widget _saveVecino(BuildContext context) {
   return Row(
     mainAxisAlignment: MainAxisAlignment.center,
