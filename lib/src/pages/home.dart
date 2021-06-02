@@ -68,8 +68,7 @@ class HomePage extends StatelessWidget {
               trailing:
                   Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
               onTap: () {
-                Navigator.pushReplacementNamed(
-                    context, ConfigAlertadosPage.routeName);
+                Navigator.pushNamed(context, '/configuracion');
               })
           //EndMen1
         ],

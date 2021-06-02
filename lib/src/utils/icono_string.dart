@@ -10,6 +10,7 @@ Icon getIcon(String nameIcon) {
     'accesibility': Icons.accessibility,
     'folder_open': Icons.folder_open,
     'list': Icons.list,
+    'settings': Icons.settings
   };
   return Icon(_icons[nameIcon], color: Colors.orangeAccent);
 }
