@@ -182,7 +182,14 @@ Widget _botonAlertados(BuildContext context) {
               primary: Colors.green, shape: StadiumBorder()),
           child: Icon(Icons.local_taxi)),
 
-      //Violencia Mujer
+      Divider(),
+      //Carabineros
+      Text('PDI     '),
+      ElevatedButton(
+          onPressed: () => launch(('tel://2 2708 0000')),
+          style: ElevatedButton.styleFrom(
+              primary: Colors.blue, shape: StadiumBorder()),
+          child: Icon(Icons.policy_outlined))
     ],
   );
 }

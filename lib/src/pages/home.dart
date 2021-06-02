@@ -13,7 +13,51 @@ class HomePage extends StatelessWidget {
         title: Text('Menú Alertados'),
         backgroundColor: Colors.orangeAccent,
       ),
+      drawer: _menu(context),
       body: _lista(),
+    );
+  }
+
+  Drawer _menu(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          DrawerHeader(
+              child: Container(),
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      image: AssetImage('assets/menu-img.jpg'),
+                      fit: BoxFit.cover))),
+
+          //Menu1
+          ListTile(
+            leading: Icon(Icons.pages, color: Colors.blueAccent),
+            title: Text('Pages'),
+            onTap: () {},
+          ),
+          //Menu1
+          ListTile(
+            leading: Icon(Icons.pages, color: Colors.blueAccent),
+            title: Text('Pages'),
+            onTap: () {},
+          ),
+          //Menu1
+          ListTile(
+            leading: Icon(Icons.pages, color: Colors.blueAccent),
+            title: Text('Pages'),
+            onTap: () {},
+          ),
+          //Menu1
+          ListTile(
+              leading: Icon(Icons.settings, color: Colors.blueAccent),
+              title: Text('Settings'),
+              onTap: () {
+                Navigator.of(context).pop();
+              })
+          //EndMen1
+        ],
+      ),
     );
   }
 

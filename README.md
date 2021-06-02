@@ -1,12 +1,12 @@
-# v_sos
+# Alertados
 
 Proyecto orientado a la comunidad realizado con domotica/IoT, para que funcione con
 el ciclo deberas comprar un arduino y/o utilizar un simil
 
-## Getting Started
+## Comenzado con alertados
 
-Si quieres compilarlo necesitaras instalar flutter en tu ambiente de desarrollo,
-por el momento no tiene integraciones
+-Proyecto desarrollado con flutter.
+
 
 Dale una estrella al proyecto Alertados!
 
