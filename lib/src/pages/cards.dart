@@ -54,16 +54,16 @@ Widget _cardTipo2() {
     children: <Widget>[
       FadeInImage(
           placeholder: AssetImage('assets/jar-loading.gif'),
-          fadeInDuration: Duration(milliseconds: 200),
+          fadeInDuration: Duration(milliseconds: 100),
           height: 300.0,
           fit: BoxFit.cover,
           image: NetworkImage(
-              'https://www.creattiva.cl/blog-hosting/wp-content/uploads/2020/07/beneficios-landing-page-1024x675.jpg')),
+              'https://http2.mlstatic.com/D_NQ_NP_703530-MLC31211128447_062019-O.webp')),
       // Image(
       //   image: NetworkImage(
       //       'https://www.creattiva.cl/blog-hosting/wp-content/uploads/2020/07/beneficios-landing-page-1024x675.jpg'),
       // ),
-      Container(padding: EdgeInsets.all(10.0), child: Text('Imagen House')),
+      Container(padding: EdgeInsets.all(10.0), child: Text('Alertados')),
     ],
   ));
 

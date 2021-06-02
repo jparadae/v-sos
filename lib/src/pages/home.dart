@@ -24,7 +24,11 @@ class HomePage extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
-              child: Container(),
+              child: Container(
+                child: Text('Vecinos Alertados'),
+              ),
+              // color: Colors.orange,
+              //style: const TextStyle(color: Colors.blue),
               decoration: BoxDecoration(
                   image: DecorationImage(
                       image: AssetImage('assets/menu-img.jpg'),
