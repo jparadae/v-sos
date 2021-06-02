@@ -1,5 +1,6 @@
 //Flutter package
 import 'package:flutter/material.dart';
+import 'package:v_sos/src/pages/config_alertados.dart';
 import 'package:v_sos/src/providers/menu.dart';
 
 //utils alertados
@@ -25,39 +26,50 @@ class HomePage extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
               child: Container(
-                child: Text('Vecinos Alertados'),
+                alignment: Alignment.bottomCenter,
+                child: Text('Configuración Alertados',
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
               ),
               // color: Colors.orange,
               //style: const TextStyle(color: Colors.blue),
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage('assets/menu-img.jpg'),
+                      image: AssetImage('assets/menu2.jpg'),
                       fit: BoxFit.cover))),
 
           //Menu1
           ListTile(
-            leading: Icon(Icons.pages, color: Colors.blueAccent),
-            title: Text('Pages'),
+            leading: Icon(Icons.home, color: Colors.orangeAccent),
+            title: Text('Home Alertados'),
+            onTap: () {},
+            trailing:
+                Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
+          ),
+          //Menu1
+          ListTile(
+            leading: Icon(Icons.photo_album, color: Colors.orangeAccent),
+            title: Text('Galería Alertados'),
+            trailing:
+                Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
             onTap: () {},
           ),
           //Menu1
           ListTile(
-            leading: Icon(Icons.pages, color: Colors.blueAccent),
-            title: Text('Pages'),
+            leading: Icon(Icons.people, color: Colors.orangeAccent),
+            title: Text('Vecinos Alertados'),
+            trailing:
+                Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
             onTap: () {},
           ),
           //Menu1
           ListTile(
-            leading: Icon(Icons.pages, color: Colors.blueAccent),
-            title: Text('Pages'),
-            onTap: () {},
-          ),
-          //Menu1
-          ListTile(
-              leading: Icon(Icons.settings, color: Colors.blueAccent),
-              title: Text('Settings'),
+              leading: Icon(Icons.settings, color: Colors.orangeAccent),
+              title: Text('Configuración'),
+              trailing:
+                  Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
               onTap: () {
-                Navigator.of(context).pop();
+                Navigator.pushReplacementNamed(
+                    context, ConfigAlertadosPage.routeName);
               })
           //EndMen1
         ],
@@ -87,7 +99,7 @@ class HomePage extends StatelessWidget {
       final widgetTemp = ListTile(
         title: Text(opt['text']),
         leading: getIcon(opt['icon']),
-        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.blueAccent),
+        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
         onTap: () {
           // Navigator.pushNamed(context, opt['ruta']);
           //final route = getApplicationRoutes();
