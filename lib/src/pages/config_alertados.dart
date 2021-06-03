@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+enum SingingCharacter { lafayette, jefferson }
 
 /// This is the stateful widget that the main application instantiates.
 class ConfigAlertadosPage extends StatefulWidget {
@@ -8,7 +11,9 @@ class ConfigAlertadosPage extends StatefulWidget {
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
+  SingingCharacter? _character = SingingCharacter.lafayette;
   bool _lights = false;
+  String _nombre = 'Juan Perez';
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +30,8 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
         _buttonOption(),
         Divider(),
         _datosAdmin(),
+        Divider(),
+        _saveInfoConfig(),
       ]),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
@@ -50,36 +57,59 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
     );
   }
 
-  //RadioButtons
+  // Opciones RadioButtons
   Widget _buttonOption() {
     return Column(
       children: <Widget>[
-        RadioListTile(
-          value: 1,
-          groupValue: 1,
-          title: Text('Masculino'),
-          onChanged: (value) {},
+        RadioListTile<SingingCharacter>(
+          value: SingingCharacter.lafayette,
+          groupValue: _character,
+          title: const Text('Masculino'),
+          onChanged: (SingingCharacter? value) {
+            setState(() {
+              _character = value;
+            });
+          },
         ),
-        RadioListTile(
-          value: 1,
-          groupValue: 2,
-          title: Text('Fem'),
-          onChanged: (value) {},
-        )
+        RadioListTile<SingingCharacter>(
+          value: SingingCharacter.jefferson,
+          groupValue: _character,
+          title: const Text('Femernino'),
+          onChanged: (SingingCharacter? value) {
+            setState(() {
+              _character = value;
+            });
+          },
+        ),
       ],
     );
+  }
+
+  //Save InfoCondifAlertados
+  Widget _saveInfoConfig() {
+    return ElevatedButton(
+      onPressed: _incrementCounter,
+      child: Text('Increment Counter'),
+    );
+  }
+
+  //Fx asyncrona de guardado de datos
+  _incrementCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int counter = (prefs.getInt('counter') ?? 0) + 1;
+    print('Pressed $counter times.');
+    await prefs.setInt('counter', counter);
   }
 
   //Nombre Persona que guarda alarmas
   Widget _datosAdmin() {
     return Container(
       child: TextField(
-        decoration: InputDecoration(
-          labelText: 'Nombre',
-          helperText: 'Nombre de la persona que configura la alarma',
-        ),
-        onChanged: (value) {},
-      ),
+          decoration: InputDecoration(
+            labelText: 'Nombre',
+            helperText: 'Nombre de la persona que configura la alarma',
+          ),
+          onChanged: (value) => {}),
     );
   }
 
