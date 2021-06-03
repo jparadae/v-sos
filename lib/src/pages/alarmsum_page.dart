@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 //Package para llamar
 import 'package:url_launcher/url_launcher.dart';
+import 'package:v_sos/src/widgets/menu_burger.dart';
 
 //Botonera inicial
 //Podrias registervcin, regist alarmxhou
@@ -24,9 +25,11 @@ class _CountAlarmPageState extends State<CountAlarmPage> {
     return Scaffold(
         appBar: AppBar(
           title: Text('Alertados'),
-          centerTitle: true,
+          //centerTitle: true,
           backgroundColor: Colors.orangeAccent,
         ),
+        // drawer: MenuAlertas(),
+
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -92,9 +95,36 @@ class AlertPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Color principal App
+      backgroundColor: Colors.yellow.shade50,
       appBar: AppBar(
         title: Text('Activar Alertados'),
         backgroundColor: Colors.orangeAccent,
+        actions: <Widget>[
+          Container(
+            padding: EdgeInsets.all(2.0),
+            child: CircleAvatar(
+              backgroundImage: NetworkImage(
+                  'https://png.pngtree.com/png-vector/20190726/ourlarge/pngtree-siren-alarm-icon-png-image_1609902.jpg'),
+              radius: 25.0,
+            ),
+          ),
+
+          // Container(
+          //   child: CircleAvatar(
+          //     //Texto con estilo QL
+
+          //     child: Text('AL',
+          //         style: TextStyle(
+          //           color: Colors.white,
+          //           fontSize: 20,
+          //           fontFamily: 'RobotoMono',
+          //         )),
+
+          //     backgroundColor: Colors.redAccent,
+          //   ),
+          // ),
+        ],
       ),
       body: ListView(padding: EdgeInsets.all(30), children: <Widget>[
         _indicaciones(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:v_sos/src/widgets/menu_burger.dart';
 
 //Esta sera la pagina temporal de los menus
 class Contactos extends StatefulWidget {
@@ -55,26 +56,13 @@ class _ContactoState extends State<Contactos> {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      //Color principal App
+      backgroundColor: Colors.yellow.shade50,
       appBar: AppBar(
         title: Text('Registro de comunidad'),
         backgroundColor: Colors.orangeAccent,
-        actions: <Widget>[
-          // Container(
-          //   padding: EdgeInsets.all(2.0),
-          //   child: CircleAvatar(
-          //     backgroundImage: NetworkImage(
-          //         'https://scontent-scl2-1.xx.fbcdn.net/v/t31.18172-8/17192646_10212081323814309_3581805654920506777_o.jpg?_nc_cat=103&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=yvfVaC1BEBQAX9WiXLO&_nc_ht=scontent-scl2-1.xx&oh=14db7d27110cf2333d1e46c95f0a9694&oe=60DC08B7'),
-          //     radius: 25.0,
-          //   ),
-          // ),
-          // Container(
-          //   child: CircleAvatar(
-          //     child: Text('SL'),
-          //     backgroundColor: Colors.yellowAccent,
-          //   ),
-          // ),
-        ],
       ),
+      //drawer: MenuAlertas(),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
@@ -93,23 +81,13 @@ class _ContactoState extends State<Contactos> {
 
           //_createVecino(), Solo para ver que estoy recibiendo el param
         ],
-        // ),
-
-        //  Center(
-        //   child: FadeInImage(
-        //     image: NetworkImage(
-        //         'https://scontent-scl2-1.xx.fbcdn.net/v/t31.18172-8/17192646_10212081323814309_3581805654920506777_o.jpg?_nc_cat=103&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=yvfVaC1BEBQAX9WiXLO&_nc_ht=scontent-scl2-1.xx&oh=14db7d27110cf2333d1e46c95f0a9694&oe=60DC08B7'),
-        //     placeholder: AssetImage('assets/jar-loading.gif'),
-        //     fadeInDuration: Duration(milliseconds: 200),
-        //   ),
-        // ),
-
-        // //body: ListView(children: _crearOpciones()),
-        // floatingActionButton: FloatingActionButton(
-        //   child: Icon(Icons.add_location),
-        //   onPressed: () {
-        //     Navigator.pop(context);
-        //   },
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.exit_to_app),
+        backgroundColor: Colors.orange,
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }

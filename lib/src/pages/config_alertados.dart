@@ -1,27 +1,57 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:v_sos/src/pages/home.dart';
+import 'package:v_sos/src/widgets/menu_burger.dart';
 
-enum SingingCharacter { lafayette, jefferson }
+enum SingingCharacter { masculino, femenino }
 
 /// This is the stateful widget that the main application instantiates.
 class ConfigAlertadosPage extends StatefulWidget {
+  static final String routName = 'configuracion';
   @override
   State<ConfigAlertadosPage> createState() => _ConfigAlertadosState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
 class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
-  SingingCharacter? _character = SingingCharacter.lafayette;
+  SingingCharacter? _character = SingingCharacter.masculino;
   bool _lights = false;
-  String _nombre = 'Juan Perez';
+  String _nombre = 'Juan ssPerez';
+  final _nombreController = TextEditingController();
+
+  void _printLatestValue() {
+    // _nombre;
+    setState(() {
+      _nombre;
+      print('Second text field: ${_nombreController.text}');
+    });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _nombreController.addListener(_printLatestValue);
+    super.initState();
+    // _nombreController = new TextEditingController(text: _nombre);
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    _nombreController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Color principal App
+      backgroundColor: Colors.yellow.shade50,
       appBar: AppBar(
         title: Text('Configuración Alertados'),
         backgroundColor: Colors.orangeAccent,
       ),
+      drawer: MenuAlertas(),
       body: ListView(padding: EdgeInsets.all(20), children: <Widget>[
         _indicaciones(),
         SizedBox(height: 30.0),
@@ -62,7 +92,7 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
     return Column(
       children: <Widget>[
         RadioListTile<SingingCharacter>(
-          value: SingingCharacter.lafayette,
+          value: SingingCharacter.masculino,
           groupValue: _character,
           title: const Text('Masculino'),
           onChanged: (SingingCharacter? value) {
@@ -72,7 +102,7 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
           },
         ),
         RadioListTile<SingingCharacter>(
-          value: SingingCharacter.jefferson,
+          value: SingingCharacter.femenino,
           groupValue: _character,
           title: const Text('Femernino'),
           onChanged: (SingingCharacter? value) {
@@ -103,13 +133,17 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
 
   //Nombre Persona que guarda alarmas
   Widget _datosAdmin() {
-    return Container(
-      child: TextField(
-          decoration: InputDecoration(
-            labelText: 'Nombre',
-            helperText: 'Nombre de la persona que configura la alarma',
-          ),
-          onChanged: (value) => {}),
+    return Column(
+      children: <Widget>[
+        TextField(
+          onChanged: (text) {
+            print('First text field: $text');
+          },
+        ),
+        TextField(
+          controller: _nombreController,
+        ),
+      ],
     );
   }
 

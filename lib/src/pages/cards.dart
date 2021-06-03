@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:v_sos/src/widgets/menu_burger.dart';
 
 //Esta sera la pagina temporal de los menus
 class CardPage extends StatelessWidget {
@@ -9,10 +10,13 @@ class CardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //Color principal App
+      backgroundColor: Colors.yellow.shade50,
       appBar: AppBar(
         title: Text('Galería Alertados!'),
         backgroundColor: Colors.orangeAccent,
       ),
+      // drawer: MenuAlertas(),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
@@ -20,6 +24,13 @@ class CardPage extends StatelessWidget {
           SizedBox(height: 30.0),
           _cardTipo2(),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.exit_to_app),
+        backgroundColor: Colors.orange,
+        onPressed: () {
+          Navigator.pop(context);
+        },
       ),
     );
   }
