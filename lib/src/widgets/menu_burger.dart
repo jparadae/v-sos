@@ -26,7 +26,7 @@ class MenuAlertas extends StatelessWidget {
             leading: Icon(Icons.home, color: Colors.orangeAccent),
             title: Text('Home Alertados'),
             onTap: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, '/');
             },
             trailing:
                 Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),

@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:v_sos/src/pages/home.dart';
 import 'package:v_sos/src/widgets/menu_burger.dart';
 
 enum SingingCharacter { masculino, femenino }
 
 /// This is the stateful widget that the main application instantiates.
 class ConfigAlertadosPage extends StatefulWidget {
-  static final String routName = 'configuracion';
+  static final String routName = 'configuracion Numero Alarma';
   @override
   State<ConfigAlertadosPage> createState() => _ConfigAlertadosState();
 }
@@ -29,7 +28,6 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     _nombreController.addListener(_printLatestValue);
     super.initState();
     // _nombreController = new TextEditingController(text: _nombre);
@@ -54,20 +52,22 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
       drawer: MenuAlertas(),
       body: ListView(padding: EdgeInsets.all(20), children: <Widget>[
         _indicaciones(),
+
+        // Divider(),
+        // _buttonOption(),
+        Divider(),
+        _datosAdmin(),
         SizedBox(height: 30.0),
         _switchAlarma(),
         Divider(),
-        _buttonOption(),
-        Divider(),
-        _datosAdmin(),
-        Divider(),
+
         _saveInfoConfig(),
       ]),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
         backgroundColor: Colors.orange,
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, '/');
         },
       ),
     );
@@ -83,7 +83,7 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
           _lights = value;
         });
       },
-      secondary: const Icon(Icons.lightbulb_outline),
+      secondary: const Icon(Icons.add_alert),
     );
   }
 
@@ -160,7 +160,7 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
               color: Colors.orangeAccent,
             ),
             title: Text('Indicaciones'),
-            subtitle: Text('Modificar números default'),
+            subtitle: Text('Registro inicial de alertado'),
           ),
         ],
       ),

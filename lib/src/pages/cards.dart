@@ -16,7 +16,7 @@ class CardPage extends StatelessWidget {
         title: Text('Galería Alertados!'),
         backgroundColor: Colors.orangeAccent,
       ),
-      // drawer: MenuAlertas(),
+      drawer: MenuAlertas(),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
@@ -29,7 +29,7 @@ class CardPage extends StatelessWidget {
         child: Icon(Icons.exit_to_app),
         backgroundColor: Colors.orange,
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, '/');
         },
       ),
     );

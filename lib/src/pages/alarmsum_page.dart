@@ -11,84 +11,6 @@ import 'package:v_sos/src/widgets/menu_burger.dart';
 -necesitas registrar los numeros en el telefono primero 
 -podria utilizar otra card en contactos*/
 
-class CountAlarmPage extends StatefulWidget {
-  @override
-  createState() => _CountAlarmPageState();
-}
-
-class _CountAlarmPageState extends State<CountAlarmPage> {
-  final _estiloText = new TextStyle(fontSize: 20);
-  int _sumalarma = 10;
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          title: Text('Alertados'),
-          //centerTitle: true,
-          backgroundColor: Colors.orangeAccent,
-        ),
-        // drawer: MenuAlertas(),
-
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Alarmas conectadas', style: _estiloText),
-              Text('$_sumalarma', style: _estiloText),
-            ],
-          ),
-        ),
-        floatingActionButton: _createButtons()
-        //),
-        );
-  }
-
-  Widget _createButtons() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        FloatingActionButton(
-            child: Icon(Icons.add_circle), onPressed: _sumarAlarmas),
-        SizedBox(width: 2.0),
-        FloatingActionButton(
-          child: Icon(Icons.policy),
-          onPressed: null,
-          backgroundColor: Colors.green,
-        ),
-        SizedBox(width: 2.0),
-        FloatingActionButton(
-            child: Icon(Icons.notification_important), onPressed: null),
-        SizedBox(width: 2.0),
-        FloatingActionButton(
-          child: Icon(Icons.fireplace),
-          onPressed: null,
-          backgroundColor: Colors.red,
-        ),
-        SizedBox(width: 2.0),
-        FloatingActionButton(
-          child: Icon(Icons.sentiment_dissatisfied_outlined),
-          onPressed: null,
-          backgroundColor: Colors.pinkAccent,
-        ),
-      ],
-    );
-  }
-
-  void _sumarAlarmas() {
-    setState(() {
-      print('sumo alarmas');
-      _sumalarma++;
-    });
-  }
-
-  /* void _reset() {
-    setState(() {
-      _sumalarma = 0;
-    });
-  }*/
-}
-
 //Class AlertPage
 
 class AlertPage extends StatelessWidget {
@@ -126,6 +48,7 @@ class AlertPage extends StatelessWidget {
           // ),
         ],
       ),
+      drawer: MenuAlertas(),
       body: ListView(padding: EdgeInsets.all(30), children: <Widget>[
         _indicaciones(),
         Divider(),
@@ -144,7 +67,7 @@ class AlertPage extends StatelessWidget {
         child: Icon(Icons.exit_to_app),
         backgroundColor: Colors.orange,
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, '/');
         },
       ),
     );
@@ -192,14 +115,14 @@ Widget _botonAlertados(BuildContext context) {
       //Bombero
       Text('Bomberos        '),
       ElevatedButton(
-          onPressed: () => __call132(context),
+          onPressed: () => launch(('tel://132')),
           style: ElevatedButton.styleFrom(
               primary: Colors.red, shape: StadiumBorder()),
           child: Icon(Icons.fire_extinguisher)),
       Divider(),
       Text('Violencia Mujer '),
       ElevatedButton(
-          onPressed: () => __call1455(context),
+          onPressed: () => launch(('tel://1485')),
           style: ElevatedButton.styleFrom(
               primary: Colors.pink, shape: StadiumBorder()),
           child: Icon(Icons.sports_kabaddi)),
@@ -207,13 +130,13 @@ Widget _botonAlertados(BuildContext context) {
       //Carabineros
       Text('Carabineros     '),
       ElevatedButton(
-          onPressed: () => __call133(context),
+          onPressed: () => launch(('tel://133')),
           style: ElevatedButton.styleFrom(
               primary: Colors.green, shape: StadiumBorder()),
           child: Icon(Icons.local_taxi)),
 
       Divider(),
-      //Carabineros
+      //PDI
       Text('PDI     '),
       ElevatedButton(
           onPressed: () => launch(('tel://2 2708 0000')),

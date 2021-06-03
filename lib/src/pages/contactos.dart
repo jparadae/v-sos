@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:v_sos/src/widgets/menu_burger.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+enum SingingCharacter { masculino, femenino }
 
 //Esta sera la pagina temporal de los menus
 class Contactos extends StatefulWidget {
@@ -12,6 +15,7 @@ class _ContactoState extends State<Contactos> {
   String _nombre = '';
   String _direccion = '';
   String _telefono = '';
+  SingingCharacter? _character = SingingCharacter.masculino;
   String _seleccionSexo = 'Femenino';
   List<String> _sexoList = ['Femenino', 'Masculino'];
   String _selectComuna = 'Santiago';
@@ -62,22 +66,22 @@ class _ContactoState extends State<Contactos> {
         title: Text('Registro de comunidad'),
         backgroundColor: Colors.orangeAccent,
       ),
-      //drawer: MenuAlertas(),
+      drawer: MenuAlertas(),
       body: ListView(
         padding: EdgeInsets.all(20),
         children: <Widget>[
           // _indicaciones(),
           _nombreVecino(),
-          Divider(),
-          _celVecino(),
-          Divider(),
-          _sexo(),
+          // Divider(),
+          // _generoOption(),
           Divider(),
           _direccionVecino(),
           Divider(),
           _comuna(),
+          Divider(),
+          _celVecino(),
           SizedBox(height: 40.0),
-          _saveVecino(context),
+          _saveVecino(),
 
           //_createVecino(), Solo para ver que estoy recibiendo el param
         ],
@@ -86,7 +90,7 @@ class _ContactoState extends State<Contactos> {
         child: Icon(Icons.exit_to_app),
         backgroundColor: Colors.orange,
         onPressed: () {
-          Navigator.pop(context);
+          Navigator.pushNamed(context, '/');
         },
       ),
     );
@@ -97,7 +101,7 @@ class _ContactoState extends State<Contactos> {
     return TextField(
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+          // border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_nombre.length}'),
           //hintText: 'Nombre vecin@',
           labelText: 'Nombre vecin@',
@@ -113,12 +117,44 @@ class _ContactoState extends State<Contactos> {
     );
   }
 
-  //Apellido Vecino
+  // Opciones RadioButtons
+  Widget _generoOption() {
+    return Column(
+      children: <Widget>[
+        new Align(
+          alignment: Alignment.centerLeft,
+          child: new Text('Sexo: '),
+        ),
+        RadioListTile<SingingCharacter>(
+          value: SingingCharacter.masculino,
+          groupValue: _character,
+          title: const Text('Masculino'),
+          onChanged: (SingingCharacter? value) {
+            setState(() {
+              _character = value;
+            });
+          },
+        ),
+        RadioListTile<SingingCharacter>(
+          value: SingingCharacter.femenino,
+          groupValue: _character,
+          title: const Text('Femernino'),
+          onChanged: (SingingCharacter? value) {
+            setState(() {
+              _character = value;
+            });
+          },
+        ),
+      ],
+    );
+  }
+
+  //Direccion
   Widget _direccionVecino() {
     return TextField(
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+          //border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_direccion.length}'),
           //hintText: 'Direccion vecin@',
           labelText: 'Direccion vecin@',
@@ -139,11 +175,11 @@ class _ContactoState extends State<Contactos> {
     return TextField(
       textCapitalization: TextCapitalization.sentences,
       decoration: InputDecoration(
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+          // border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
           counter: Text('Letras ${_telefono.length}'),
           //hintText: 'Direccion vecin@',
-          labelText: 'Teléfono vecin@',
-          helperText: 'Ingresar télefono',
+          labelText: 'Número vecin@',
+          helperText: 'Telefono (+569)',
           suffixIcon: Icon(Icons.phone),
           icon: Icon(Icons.phone_android)),
       onChanged: (valor) {
@@ -212,9 +248,13 @@ class _ContactoState extends State<Contactos> {
   Widget _comuna() {
     return Row(
       children: <Widget>[
+        new Align(
+          alignment: Alignment.centerLeft,
+          child: new Text('Comuna '),
+        ),
         Icon(Icons.add_location),
         SizedBox(width: 30.0),
-        Text('Comuna: '),
+        //Text('Comuna: '),
         DropdownButton(
           value: _selectComuna,
           items: getComuna(),
@@ -271,23 +311,29 @@ class _ContactoState extends State<Contactos> {
   }
 
   //Debes guardar al veci
-  Widget _saveVecino(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        TextButton(
-            onPressed: () => __mostrarAlert(context),
-            // onPressed: () {
-            //   Navigator.pop(context);
-            // },
-            child: Text('Guardar')),
-        TextButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: Text('Volver')),
-      ],
-    );
+  //Save InfoCondifAlertados
+  Widget _saveVecino() {
+    return Column(
+        //mainAxisAlignment: MainAxisAlignment.start,
+        children: <Widget>[
+          //Alarma Principal Comunidad
+          // Text('guardar          '),
+          ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                primary: Colors.orange,
+                //shape: StadiumBorder(),
+              ),
+              child: Text('Guardar'))
+        ]);
+  }
+
+  //Fx asyncrona de guardado de datos
+  _incrementCounter() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int counter = (prefs.getInt('counter') ?? 0) + 1;
+    print('Pressed $counter times.');
+    await prefs.setInt('counter', counter);
   }
 
   //Esto solo sirve para ver si recibo algo y si lo guardo en el state

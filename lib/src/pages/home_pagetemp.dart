@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 //Esta sera la pagina temporal de los menus
-class HomePageTemp extends StatelessWidget {
+class ListVecinosPage extends StatelessWidget {
   // This widget is the root of your application.
   final estiloText = new TextStyle(fontSize: 20);
   final opciones = ['title1', 'title2'];
@@ -13,7 +13,22 @@ class HomePageTemp extends StatelessWidget {
         title: Text('Componentes'),
         backgroundColor: Colors.orangeAccent,
       ),
-      body: ListView(children: _crearOpciones()),
+      body: ListView(
+        padding: EdgeInsets.all(20),
+        children: <Widget>[
+          _indicaciones(),
+          SizedBox(height: 30.0),
+          //_cardTipo2(),
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.exit_to_app),
+        backgroundColor: Colors.orange,
+        onPressed: () {
+          Navigator.pushNamed(context, '/');
+        },
+      ),
+      //ListView(children: _crearOpciones()),
     );
   }
 
@@ -32,4 +47,24 @@ class HomePageTemp extends StatelessWidget {
     }).toList();
     return widgets;
   }
-}
+
+  //Indicaciones
+  Widget _indicaciones() {
+    return Card(
+      elevation: 10.0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
+      child: Column(
+        children: <Widget>[
+          ListTile(
+            leading: Icon(
+              Icons.error_outline,
+              color: Colors.orangeAccent,
+            ),
+            title: Text('Indicaciones'),
+            subtitle: Text('Galeria'),
+          ),
+        ],
+      ),
+    );
+  }
+} //Fin indicadiones
