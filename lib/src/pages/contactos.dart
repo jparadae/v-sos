@@ -313,19 +313,16 @@ class _ContactoState extends State<Contactos> {
   //Debes guardar al veci
   //Save InfoCondifAlertados
   Widget _saveVecino() {
-    return Column(
-        //mainAxisAlignment: MainAxisAlignment.start,
-        children: <Widget>[
-          //Alarma Principal Comunidad
-          // Text('guardar          '),
-          ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                primary: Colors.orange,
-                //shape: StadiumBorder(),
-              ),
-              child: Text('Guardar'))
-        ]);
+    return Column(children: <Widget>[
+      //Alarma Principal Comunidad
+      // Text('guardar          '),
+      ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+          ),
+          child: Text('Guardar'))
+    ]);
   }
 
   //Fx asyncrona de guardado de datos

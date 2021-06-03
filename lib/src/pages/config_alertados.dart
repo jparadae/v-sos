@@ -117,10 +117,16 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
 
   //Save InfoCondifAlertados
   Widget _saveInfoConfig() {
-    return ElevatedButton(
-      onPressed: _incrementCounter,
-      child: Text('Increment Counter'),
-    );
+    return Column(children: <Widget>[
+      //Alarma Principal Comunidad
+      // Text('guardar          '),
+      ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            primary: Colors.orange,
+          ),
+          child: Text('Guardar'))
+    ]);
   }
 
   //Fx asyncrona de guardado de datos
