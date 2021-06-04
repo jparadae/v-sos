@@ -61,10 +61,10 @@ class _ContactoState extends State<Contactos> {
   Widget build(BuildContext context) {
     return Scaffold(
       //Color principal App
-      backgroundColor: Colors.yellow.shade50,
+      backgroundColor: Colors.red.shade50,
       appBar: AppBar(
         title: Text('Registro de comunidad'),
-        backgroundColor: Colors.orangeAccent,
+        backgroundColor: Colors.redAccent,
       ),
       drawer: MenuAlertas(),
       body: ListView(
@@ -74,13 +74,14 @@ class _ContactoState extends State<Contactos> {
           _nombreVecino(),
           // Divider(),
           // _generoOption(),
+
+          Divider(),
+          _celVecino(),
           Divider(),
           _direccionVecino(),
           Divider(),
           _comuna(),
-          Divider(),
-          _celVecino(),
-          SizedBox(height: 40.0),
+          SizedBox(height: 240.0),
           _saveVecino(),
 
           //_createVecino(), Solo para ver que estoy recibiendo el param
@@ -88,7 +89,7 @@ class _ContactoState extends State<Contactos> {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.red.shade400,
         onPressed: () {
           Navigator.pushNamed(context, '/');
         },
@@ -313,16 +314,14 @@ class _ContactoState extends State<Contactos> {
   //Debes guardar al veci
   //Save InfoCondifAlertados
   Widget _saveVecino() {
-    return Column(children: <Widget>[
-      //Alarma Principal Comunidad
-      // Text('guardar          '),
-      ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.orange,
-          ),
-          child: Text('Guardar'))
-    ]);
+    return FloatingActionButton(
+      child: Icon(Icons.save),
+      backgroundColor: Colors.red.shade400,
+      onPressed: () {
+        //cambiar el metodo
+        Navigator.pushNamed(context, '/');
+      },
+    );
   }
 
   //Fx asyncrona de guardado de datos

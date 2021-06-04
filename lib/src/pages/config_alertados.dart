@@ -15,7 +15,8 @@ class ConfigAlertadosPage extends StatefulWidget {
 class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
   SingingCharacter? _character = SingingCharacter.masculino;
   bool _lights = false;
-  String _nombre = 'Juan ssPerez';
+  String _nombre = 'Juan Perez';
+  String _telefono = '';
   final _nombreController = TextEditingController();
 
   void _printLatestValue() {
@@ -46,8 +47,8 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
       //Color principal App
       backgroundColor: Colors.yellow.shade50,
       appBar: AppBar(
-        title: Text('Configuración Alertados'),
-        backgroundColor: Colors.orangeAccent,
+        title: Text('Configuración AlertVeciApp'),
+        backgroundColor: Colors.redAccent,
       ),
       drawer: MenuAlertas(),
       body: ListView(padding: EdgeInsets.all(20), children: <Widget>[
@@ -57,15 +58,15 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
         // _buttonOption(),
         Divider(),
         _datosAdmin(),
+        Divider(),
+        _alertVeciApp(),
+
         SizedBox(height: 30.0),
         _switchAlarma(),
-        Divider(),
-
-        _saveInfoConfig(),
       ]),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.redAccent,
         onPressed: () {
           Navigator.pushNamed(context, '/');
         },
@@ -83,7 +84,7 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
           _lights = value;
         });
       },
-      secondary: const Icon(Icons.add_alert),
+      secondary: const Icon(Icons.save),
     );
   }
 
@@ -115,20 +116,6 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
     );
   }
 
-  //Save InfoCondifAlertados
-  Widget _saveInfoConfig() {
-    return Column(children: <Widget>[
-      //Alarma Principal Comunidad
-      // Text('guardar          '),
-      ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.orange,
-          ),
-          child: Text('Guardar'))
-    ]);
-  }
-
   //Fx asyncrona de guardado de datos
   _incrementCounter() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -137,19 +124,43 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
     await prefs.setInt('counter', counter);
   }
 
-  //Nombre Persona que guarda alarmas
+  //Nombre Administrador de Alarma
   Widget _datosAdmin() {
-    return Column(
-      children: <Widget>[
-        TextField(
-          onChanged: (text) {
-            print('First text field: $text');
-          },
-        ),
-        TextField(
-          controller: _nombreController,
-        ),
-      ],
+    return TextField(
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(
+          counter: Text('Letras ${_nombre.length}'),
+          labelText: 'Admin AlertVeciApp',
+          helperText: 'Nombre administrador AlertVeciApp',
+          suffixIcon: Icon(Icons.accessibility),
+          icon: Icon(Icons.account_circle)),
+      onChanged: (valor) {
+        setState(() {
+          _nombre = valor;
+          print(_nombre);
+        });
+      },
+    );
+  }
+
+  //Alarma
+  Widget _alertVeciApp() {
+    return TextField(
+      textCapitalization: TextCapitalization.sentences,
+      decoration: InputDecoration(
+          // border: OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+          counter: Text('Letras ${_telefono.length}'),
+          //hintText: 'Direccion vecin@',
+          labelText: 'Registrar AlertVeciApp',
+          helperText: '(+569) nueva alarma',
+          suffixIcon: Icon(Icons.phone),
+          icon: Icon(Icons.phone_android)),
+      onChanged: (valor) {
+        setState(() {
+          _telefono = valor;
+          print(_telefono);
+        });
+      },
     );
   }
 
@@ -163,10 +174,10 @@ class _ConfigAlertadosState extends State<ConfigAlertadosPage> {
           ListTile(
             leading: Icon(
               Icons.error_outline,
-              color: Colors.orangeAccent,
+              color: Colors.redAccent,
             ),
             title: Text('Indicaciones'),
-            subtitle: Text('Registro inicial de alertado'),
+            subtitle: Text('Configura tú AlertVeciApp'),
           ),
         ],
       ),

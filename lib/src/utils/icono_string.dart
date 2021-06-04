@@ -12,5 +12,5 @@ Icon getIcon(String nameIcon) {
     'list': Icons.list,
     'settings': Icons.settings
   };
-  return Icon(_icons[nameIcon], color: Colors.orangeAccent);
+  return Icon(_icons[nameIcon], color: Colors.redAccent);
 }

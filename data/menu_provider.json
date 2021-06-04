@@ -4,31 +4,31 @@
     {
         "ruta": "alert",
         "icon": "add_alert",
-        "text": "Activar alerta"
+        "text": "Activar AlertVeciApp"
     },
     {
         "ruta": "contactos",
         "icon": "accesibility",
-        "text": "Registro comunidad"
+        "text": "Registrar vecino"
     },
 
     {
         "ruta": "lista_vecinos",
         "icon": "list",
-        "text": "Lista de vecinos registrados"
+        "text": "Lista de vecinos alertados"
     },
     
     {
         "ruta": "cards",
         "icon": "folder_open",
-        "text": "Galeria alertados"
+        "text": "Galeria AlertVeciApp"
     },
     
     
     {
         "ruta": "configuracion",
         "icon": "settings",
-        "text": "Configuracion alertados"
+        "text": "Configuracion AlertVeciApp"
     }
 ]
 }

@@ -10,8 +10,8 @@ class ListVecinosPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Componentes'),
-        backgroundColor: Colors.orangeAccent,
+        title: Text('Vecinos alertados'),
+        backgroundColor: Colors.redAccent,
       ),
       body: ListView(
         padding: EdgeInsets.all(20),
@@ -23,7 +23,7 @@ class ListVecinosPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.redAccent,
         onPressed: () {
           Navigator.pushNamed(context, '/');
         },
@@ -58,10 +58,10 @@ class ListVecinosPage extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.error_outline,
-              color: Colors.orangeAccent,
+              color: Colors.redAccent,
             ),
-            title: Text('Indicaciones'),
-            subtitle: Text('Galeria'),
+            title: Text('Lista de vecinos'),
+            subtitle: Text('Vecinos conectados a mi AlertVeciApp'),
           ),
         ],
       ),

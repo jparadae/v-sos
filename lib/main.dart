@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:alertados/src/pages/alarmsum_page.dart';
-import 'package:alertados/src/pages/cards.dart';
-import 'package:alertados/src/pages/contactos.dart';
-import 'package:alertados/src/pages/home.dart';
-import 'package:alertados/src/pages/home_pagetemp.dart';
+import 'package:alertados/src/pages/galeria.dart';
 import 'package:alertados/src/routes/routes.dart';
-//import 'package:alertados/src/app.dart';
 
 void main() {
   runApp(MyApp());

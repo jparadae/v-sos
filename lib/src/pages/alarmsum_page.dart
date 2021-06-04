@@ -18,10 +18,10 @@ class AlertPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //Color principal App
-      backgroundColor: Colors.yellow.shade50,
+      backgroundColor: Colors.red.shade50,
       appBar: AppBar(
-        title: Text('Activar Alertados'),
-        backgroundColor: Colors.orangeAccent,
+        title: Text('Activar AlertVeciApp'),
+        backgroundColor: Colors.redAccent,
         actions: <Widget>[
           Container(
             padding: EdgeInsets.all(2.0),
@@ -64,7 +64,7 @@ class AlertPage extends StatelessWidget {
       ]),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.redAccent,
         onPressed: () {
           Navigator.pushNamed(context, '/');
         },
@@ -82,7 +82,7 @@ class AlertPage extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.error_outline,
-              color: Colors.orangeAccent,
+              color: Colors.redAccent,
             ),
             title: Text('Indicaciones'),
             subtitle: Text('Presione icono según emergencia'),
@@ -101,7 +101,7 @@ Widget _botonAlertados(BuildContext context) {
     mainAxisAlignment: MainAxisAlignment.start,
     children: <Widget>[
       //Alarma Principal Comunidad
-      Text('Alertados          '),
+      Text('AlertVeciApp          '),
       ElevatedButton(
           onPressed: () => launch(('tel://99999xxxxx')),
           style: ElevatedButton.styleFrom(
@@ -136,7 +136,7 @@ Widget _botonAlertados(BuildContext context) {
 
       Divider(),
       //PDI
-      Text('PDI     '),
+      Text('PDI Homicidios     '),
       ElevatedButton(
           onPressed: () => launch(('tel://2 2708 0000')),
           style: ElevatedButton.styleFrom(

@@ -11,10 +11,10 @@ class CardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //Color principal App
-      backgroundColor: Colors.yellow.shade50,
+      backgroundColor: Colors.red.shade50,
       appBar: AppBar(
-        title: Text('Galería Alertados!'),
-        backgroundColor: Colors.orangeAccent,
+        title: Text('Demo AlerVeciApp'),
+        backgroundColor: Colors.redAccent,
       ),
       drawer: MenuAlertas(),
       body: ListView(
@@ -27,7 +27,7 @@ class CardPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.exit_to_app),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.redAccent,
         onPressed: () {
           Navigator.pushNamed(context, '/');
         },
@@ -45,10 +45,10 @@ class CardPage extends StatelessWidget {
           ListTile(
             leading: Icon(
               Icons.error_outline,
-              color: Colors.orangeAccent,
+              color: Colors.red,
             ),
-            title: Text('Indicaciones'),
-            subtitle: Text('Galeria'),
+            title: Text('Demo AlertVeciApp'),
+            subtitle: Text('Galeria de uso AlertVeciApp'),
           ),
         ],
       ),

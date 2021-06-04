@@ -11,10 +11,10 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       //Color principal App
-      backgroundColor: Colors.yellow.shade50,
+      backgroundColor: Colors.red.shade50,
       appBar: AppBar(
-        title: Text('Menú Alertados'),
-        backgroundColor: Colors.orangeAccent,
+        title: Text('Menú AlertVeciApp'),
+        backgroundColor: Colors.redAccent,
       ),
       drawer: MenuAlertas(),
       body: _lista(),
@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
       final widgetTemp = ListTile(
         title: Text(opt['text']),
         leading: getIcon(opt['icon']),
-        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.orangeAccent),
+        trailing: Icon(Icons.keyboard_arrow_right, color: Colors.redAccent),
         onTap: () {
           // Navigator.pushNamed(context, opt['ruta']);
           //final route = getApplicationRoutes();
