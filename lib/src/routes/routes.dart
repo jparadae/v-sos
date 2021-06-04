@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:v_sos/src/pages/alarmsum_page.dart';
-import 'package:v_sos/src/pages/cards.dart';
-import 'package:v_sos/src/pages/config_alertados.dart';
-import 'package:v_sos/src/pages/contactos.dart';
-import 'package:v_sos/src/pages/home.dart';
-import 'package:v_sos/src/pages/home_pagetemp.dart';
+import 'package:alertados/src/pages/alarmsum_page.dart';
+import 'package:alertados/src/pages/cards.dart';
+import 'package:alertados/src/pages/config_alertados.dart';
+import 'package:alertados/src/pages/contactos.dart';
+import 'package:alertados/src/pages/home.dart';
+import 'package:alertados/src/pages/home_pagetemp.dart';
 
 Map<String, WidgetBuilder> getApplicationRoutes() {
   return <String, WidgetBuilder>{

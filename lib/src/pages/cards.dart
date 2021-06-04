@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:v_sos/src/widgets/menu_burger.dart';
+import 'package:alertados/src/widgets/menu_burger.dart';
 
 //Esta sera la pagina temporal de los menus
 class CardPage extends StatelessWidget {

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 //Package para llamar
 import 'package:url_launcher/url_launcher.dart';
-import 'package:v_sos/src/widgets/menu_burger.dart';
+import 'package:alertados/src/widgets/menu_burger.dart';
 
 //Botonera inicial
 //Podrias registervcin, regist alarmxhou
@@ -26,8 +26,7 @@ class AlertPage extends StatelessWidget {
           Container(
             padding: EdgeInsets.all(2.0),
             child: CircleAvatar(
-              backgroundImage: NetworkImage(
-                  'https://png.pngtree.com/png-vector/20190726/ourlarge/pngtree-siren-alarm-icon-png-image_1609902.jpg'),
+              backgroundImage: AssetImage('assets/alert1.png'),
               radius: 25.0,
             ),
           ),

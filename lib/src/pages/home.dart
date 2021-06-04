@@ -1,10 +1,10 @@
 //Flutter package
 import 'package:flutter/material.dart';
-import 'package:v_sos/src/providers/menu.dart';
+import 'package:alertados/src/providers/menu.dart';
 
 //utils alertados
-import 'package:v_sos/src/utils/icono_string.dart';
-import 'package:v_sos/src/widgets/menu_burger.dart';
+import 'package:alertados/src/utils/icono_string.dart';
+import 'package:alertados/src/widgets/menu_burger.dart';
 
 class HomePage extends StatelessWidget {
   @override

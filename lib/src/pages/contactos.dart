@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:v_sos/src/widgets/menu_burger.dart';
+import 'package:alertados/src/widgets/menu_burger.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 enum SingingCharacter { masculino, femenino }
